@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Oktania Cahya Ramadhani</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --soft-blue: #60a5fa;
+            --bg-light: #f0f9ff;
+            --white: #ffffff;
+            --orchid-pink: #f472b6;
+            --text-main: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Flower Decorations */
+        .flower {
+            position: fixed;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.2;
+            animation: rotateFlower 20s linear infinite;
+        }
+
+        @keyframes rotateFlower {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .flower-1 { top: -50px; right: -50px; width: 250px; fill: var(--soft-blue); }
+        .flower-2 { bottom: -80px; left: -80px; width: 300px; fill: var(--orchid-pink); }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Sidebar Left */
+        .sidebar {
+            flex: 1 1 350px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--soft-blue));
+            color: var(--white);
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .profile-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 8px solid rgba(255, 255, 255, 0.2);
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .profile-img:hover {
+            transform: rotate(5deg) scale(1.05);
+            border-color: var(--orchid-pink);
+        }
+
+        .name-title h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .name-title p {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .contact-list {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+            font-size: 0.95rem;
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+        }
+
+        .contact-item i {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px;
+            border-radius: 10px;
+        }
+
+        /* Main Content Right */
+        .main {
+            flex: 2 1 500px;
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .section-header::after {
+            content: "";
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(to right, var(--soft-blue), transparent);
+            margin-left: 10px;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            color: #475569;
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid var(--soft-blue);
+        }
+
+        /* Timeline for Education */
+        .timeline {
+            border-left: 3px dashed var(--soft-blue);
+            margin-left: 10px;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            animation: slideIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -38px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background: var(--orchid-pink);
+            border-radius: 50%;
+            border: 3px solid var(--white);
+        }
+
+        .year-pill {
+            background: var(--primary-blue);
+            color: white;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        /* Skills Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: var(--white);
+            color: var(--primary-blue);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--soft-blue);
+            transition: all 0.3s;
+        }
+
+        .tag:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: white;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .social-card:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container { margin: 10px; border-radius: 15px; }
+            .sidebar { padding: 30px 20px; }
+            .main { padding: 30px 20px; }
+            .social-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ornamental Flowers -->
+    <svg class="flower flower-1" viewBox="0 0 100 100">
+        <path d="M50 0 C55 20 75 20 80 40 C85 60 65 65 50 55 C35 65 15 60 20 40 C25 20 45 20 50 0 Z" />
+        <circle cx="50" cy="40" r="5" fill="white" />
+    </svg>
+    <svg class="flower flower-2" viewBox="0 0 100 100">
+        <path d="M50 0 C55 20 75 20 80 40 C85 60 65 65 50 55 C35 65 15 60 20 40 C25 20 45 20 50 0 Z" />
+        <circle cx="50" cy="40" r="5" fill="white" />
+    </svg>
+
+    <div class="container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="profile-container">
+                <img src="https://ui-avatars.com/api/?name=Oktania+Cahya&background=da70d6&color=fff&size=200" alt="Foto Oktania Cahya" class="profile-img">
+            </div>
+            
+            <div class="name-title">
+                <h1>Oktania Cahya R.</h1>
+                <p>Creative Student</p>
+            </div>
+
+            <div class="contact-list">
+                <div class="contact-item">
+                    <i data-lucide="calendar"></i>
+                    <span>17 Okt 2006</span>
+                </div>
+                <div class="contact-item">
+                    <i data-lucide="phone"></i>
+                    <span>+62 888 608 7566</span>
+                </div>
+                <div class="contact-item">
+                    <i data-lucide="map-pin"></i>
+                    <span>Bojong Asih, Dayeuhkolot</span>
+                </div>
+                <div class="contact-item">
+                    <i data-lucide="languages"></i>
+                    <span>IDN / ENG</span>
+                </div>
+            </div>
+
+            <div class="social-grid">
+                <a href="#" class="social-card">
+                    <i data-lucide="instagram"></i>
+                    <span>oktaniacahyar_17</span>
+                </a>
+                <a href="#" class="social-card">
+                    <i data-lucide="music"></i>
+                    <span>ttaa</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main">
+            <!-- Tentang Saya -->
+            <section class="section">
+                <div class="section-header">
+                    <i data-lucide="user-heart"></i>
+                    Tentang Saya
+                </div>
+                <div class="about-text">
+                    "Halo! Saya adalah pribadi yang penuh semangat. Saya <strong>sangat suka memasak</strong> untuk menciptakan kegembiraan lewat rasa. Saat santai, saya mengisi waktu dengan <strong>menonton film</strong> dan <strong>mendengarkan musik</strong> untuk menjaga kreativitas tetap menyala."
+                </div>
+            </section>
+
+            <!-- Pendidikan -->
+            <section class="section">
+                <div class="section-header">
+                    <i data-lucide="graduation-cap"></i>
+                    Pendidikan
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item" style="animation-delay: 0.2s;">
+                        <span class="year-pill">2022 - 2026</span>
+                        <h3>SMA KP Baleendah</h3>
+                        <p>Fokus Pendidikan Tingkat Menengah Atas</p>
+                    </div>
+                    <div class="timeline-item" style="animation-delay: 0.4s;">
+                        <span class="year-pill">2019 - 2022</span>
+                        <h3>SMPN 1 Dayeuhkolot</h3>
+                        <p>Fokus Pendidikan Tingkat Menengah Pertama</p>
+                    </div>
+                    <div class="timeline-item" style="animation-delay: 0.6s;">
+                        <span class="year-pill">2013 - 2019</span>
+                        <h3>SD Zipur Dayeuhkolot 02</h3>
+                        <p>Dasar Pendidikan Sekolah Dasar</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Organisasi -->
+            <section class="section">
+                <div class="section-header">
+                    <i data-lucide="users"></i>
+                    Organisasi & Pengalaman
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Badminton (SMA)</h3>
+                        <p>Aktif dalam pengembangan bakat olahraga bulutangkis.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Paskibra (SMPN)</h3>
+                        <p>Melatih kedisiplinan dan kerjasama tim melalui baris-berbaris.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sertifikat & Keahlian -->
+            <section class="section">
+                <div class="section-header">
+                    <i data-lucide="award"></i>
+                    Sertifikat & Keahlian
+                </div>
+                <div class="about-text" style="margin-bottom: 20px;">
+                    <i data-lucide="star" style="color: var(--orchid-pink); vertical-align: middle;"></i>
+                    <strong>Lomba Paskibra:</strong> Kategori Madya 1
+                </div>
+                <div class="tags">
+                    <div class="tag">Memasak</div>
+                    <div class="tag">Manajemen Waktu</div>
+                    <div class="tag">Kerjasama Tim</div>
+                    <div class="tag">Komunikasi</div>
+                </div>
+            </section>
+
+            <!-- Hobby -->
+            <section class="section">
+                <div class="section-header">
+                    <i data-lucide="palette"></i>
+                    Hobby & Minat
+                </div>
+                <div class="tags">
+                    <div class="tag"><i data-lucide="clapperboard"></i> Menonton Film</div>
+                    <div class="tag"><i data-lucide="utensils"></i> Memasak</div>
+                    <div class="tag"><i data-lucide="headphones"></i> Mendengarkan Musik</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Start Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+</body>
+</html>
